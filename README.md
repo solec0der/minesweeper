@@ -2,6 +2,8 @@
 
 The classic Minesweeper implemented using JavaFX.
 
+### It's still being developed but it'll be completed in the near future.
+
 
 ### Prerequisites
 
