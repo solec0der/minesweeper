@@ -49,6 +49,13 @@ public class Game {
                 pane.getChildren().add(field[i][j].drawRect());
             }
         }
+        
+        
+        for (int i = 0; i < 10; i++) {
+            for (int j = 0; j < 10; j++) {
+                countNeighbours(i, j);
+            }
+        }
     }
 
     public void setFieldProperty(int cols, int rows, int w) {
@@ -57,21 +64,41 @@ public class Game {
     }
 
     public void reveal(int x, int y, Pane pane) {
+        System.out.println(x + " " + y);
         for (int i = 0; i < 10; i++) {
             for (int j = 0; j < 10; j++) {
-                if (field[i][j].getX() > x && field[i][j].getX() < x + w && field[i][j].getY() > y && field[i][j].getY() < y + w) {
+                if (x > field[i][j].getX() && x < field[i][j].getX() + w && y > field[i][j].getY() && y < field[i][j].getY() + w) {
                     if (field[i][j].getBomb() == true) {
                         pane.getChildren().add(field[i][j].drawEllpise());
                     } else {
-                        field[i - 1][j - 1].setRevealed();
-                        pane.getChildren().add(field[i - 1][j - 1].drawRevealedRect());
+                        if(field[i][j].getNeighbourCount() > 0) {
+                            field[i][j].setRevealed();
+                            pane.getChildren().add(field[i][j].drawRevealedRect());
+                            pane.getChildren().add(field[i][j].drawLabel());
+                            System.out.println(i + " " + j);
+                        }
+                        
                     }
                 }
             }
         }
     }
 
-    
+    public void countNeighbours(int colIndex, int rowIndex) {
+        int total = 0;
+
+        for (int i = colIndex - 1; i <= colIndex + 1; i++) {
+            for (int j = rowIndex - 1; j <= rowIndex + 1; j++) {
+                if(!(i < 0 || i >= 10 || j < 0 || j >= 10)) {
+                    
+                    if(field[i][j].getBomb() == true) {
+                        total++;
+                    }
+                }
+            }
+        }
+        field[colIndex][rowIndex].setNeighbourCount(total);
+    }
 
     public Cell[][] getField() {
         return field;

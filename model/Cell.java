@@ -5,6 +5,7 @@
  */
 package com.yannickhuggler.minesweeper.model;
 
+import javafx.scene.control.Label;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Ellipse;
 import javafx.scene.shape.Rectangle;
@@ -51,7 +52,7 @@ public class Cell {
 
     public Ellipse drawEllpise() {
 
-        Ellipse ellipse = new Ellipse(x - w * 0.5, y - w * 0.5, w * 0.25, w * 0.25);
+        Ellipse ellipse = new Ellipse(x + w * 0.5, y + w * 0.5, w * 0.25, w * 0.25);
 
         ellipse.setFill(Color.GRAY);
         ellipse.setStroke(Color.BLACK);
@@ -61,7 +62,12 @@ public class Cell {
         return ellipse;
     }
 
-    
+    public Label drawLabel() {
+        Label label = new Label(Integer.toString(neighbourCount));
+        label.setLayoutX(x);
+        label.setLayoutY(y);
+        return label;
+    }
 
     public int getX() {
         return x;
@@ -83,5 +89,9 @@ public class Cell {
     
     public boolean getBomb() {
         return bomb;
+    }
+    
+    public int getNeighbourCount() {
+        return neighbourCount;
     }
 }
