@@ -41,12 +41,6 @@ public class Game {
             }
         }
 
-        for (int i = 0; i < 10; i++) {
-            for (int j = 0; j < 10; j++) {
-                this.countNeighbours(i, j);
-            }
-        }
-
     }
 
     public void drawGrid(Pane pane) {
@@ -77,21 +71,7 @@ public class Game {
         }
     }
 
-    public void countNeighbours(int colIndex, int rowIndex) {
-        int count = 0;
-        
-        for (int i = colIndex - 1; i <= colIndex + 1; i++) {
-            for (int j = rowIndex - 1; j <= rowIndex + 1; j++) {
-                if (field[i][j] != null) {
-                    
-                    if (field[i][j].getBomb()) {
-                        count++;
-                    }
-                }
-            }
-        }
-        field[colIndex][rowIndex].setNeighbourCount(count);
-    }
+    
 
     public Cell[][] getField() {
         return field;

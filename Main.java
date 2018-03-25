@@ -23,11 +23,13 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) {
         this.instance = Game.getInstance();
+        
+        
         Pane pane = new Pane();
         instance.setFieldProperty(10, 10, 30);
-        
         instance.initGrid();
         instance.drawGrid(pane);
+        
         
         pane.setOnMouseClicked(e -> {
             mouseClicked(e, pane);
