@@ -1,9 +1,23 @@
-# Minesweeper with JavaFX
+# Minesweeper
 
-This is the classic Minesweeper implemented in Java using JavaFX.
+The classic Minesweeper implemented using JavaFX.
 
-It's currently still in construction so it's not fully working yet.
 
-The goal is, that the user should be able to choose a grid size and the grid is going to adapt to that setting, so it's not just a static grid.
+### Prerequisites
 
-JJ
+To run this game, you have to have the Java Runtime Environnement installed on your computer.
+
+## Built With
+
+* [Netbeans](https://netbeans.org)
+
+## Authors
+
+* **Yannick Huggler**
+
+## Acknowledgments
+
+* Hat tip to anyone who's code was used
+* Inspiration
+* etc
+
