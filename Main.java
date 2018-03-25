@@ -6,11 +6,15 @@
 package com.yannickhuggler.minesweeper;
 
 import com.yannickhuggler.minesweeper.model.Game;
+import java.util.Optional;
 import javafx.application.Application;
 import javafx.scene.Scene;
+import javafx.scene.control.Dialog;
+import javafx.scene.control.TextInputDialog;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -19,14 +23,40 @@ import javafx.stage.Stage;
 public class Main extends Application {
 
     private Game instance;
+    private Pane pane;
     
     @Override
     public void start(Stage primaryStage) {
+        TextInputDialog dialog = null;
+        Optional<String> result;
+        
+        dialog = new TextInputDialog("Enter columns here...");
+        dialog.setHeaderText("Define grid size");
+        dialog.setContentText("How many columns?");
+        result = dialog.showAndWait();
+        
+        int cols = Integer.parseInt(result.get());
+        
+        dialog = new TextInputDialog("Enter rows here...");
+        dialog.setHeaderText("Define grid size");
+        dialog.setContentText("How many rows?");
+        result = dialog.showAndWait();
+        
+        int rows = Integer.parseInt(result.get());
+        
+        dialog = new TextInputDialog("Enter width here...");
+        dialog.setHeaderText("Define grid size");
+        dialog.setContentText("How wide should every cell be?");
+        result = dialog.showAndWait();
+        
+        int w = Integer.parseInt(result.get());
+        
         this.instance = Game.getInstance();
         
         
         Pane pane = new Pane();
-        instance.setFieldProperty(10, 10, 30);
+        this.pane = pane;
+        instance.setFieldProperty(cols, rows, w);
         instance.initGrid();
         instance.drawGrid(pane);
         
@@ -35,7 +65,7 @@ public class Main extends Application {
             mouseClicked(e, pane);
         });
 
-        Scene scene = new Scene(pane, 300, 300);
+        Scene scene = new Scene(pane, cols * w, rows * w);
 
         primaryStage.setTitle("Minesweeper");
         primaryStage.setScene(scene);
@@ -48,7 +78,7 @@ public class Main extends Application {
         int y = (int) e.getY();
 
         instance.reveal(x, y, pane);
-           
+        
     }
     
     

@@ -9,6 +9,7 @@ import javafx.scene.control.Label;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Ellipse;
 import javafx.scene.shape.Rectangle;
+import javafx.scene.text.Font;
 
 /**
  *
@@ -64,8 +65,11 @@ public class Cell {
 
     public Label drawLabel() {
         Label label = new Label(Integer.toString(neighbourCount));
-        label.setLayoutX(x);
-        label.setLayoutY(y);
+        label.setLayoutX(x + w * 0.2);
+        label.setLayoutY(y - w * 0.1);
+        label.setTextFill(Color.WHITE);
+        label.setPrefSize(w, w);
+        label.setFont(new Font("Arial", w));
         return label;
     }
 
