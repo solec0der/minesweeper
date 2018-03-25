@@ -1,4 +1,4 @@
-# Minesweeper
+# Minesweeper with JavaFX
 
 This is the classic Minesweeper implemented in Java using JavaFX.
 
