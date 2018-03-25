@@ -1,6 +1,6 @@
 # Minesweeper
 
-This is the classic Minesweeper implemented in Java.
+This is the classic Minesweeper implemented in Java using JavaFX.
 
 It's currently still in construction so it's not fully working yet.
 
