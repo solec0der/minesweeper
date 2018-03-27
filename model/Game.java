@@ -23,7 +23,7 @@ public class Game {
     private Game() {
 
     }
-
+    
     public static Game getInstance() {
         if (instance == null) {
             instance = new Game();
@@ -69,9 +69,9 @@ public class Game {
     public void gameOver(Pane pane) {
         for (int i = 0; i < cols; i++) {
             for (int j = 0; j < rows; j++) {
-                if(field[i][j].getBomb() == true) {
+                if (field[i][j].getBomb() == true) {
                     pane.getChildren().add(field[i][j].drawEllpise());
-                    
+
                 }
             }
         }
@@ -97,7 +97,7 @@ public class Game {
                         } else {
                             field[i][j].setRevealed();
                             pane.getChildren().add(field[i][j].drawRevealedRect());
-                            floodFill(i, j, pane);
+                            //floodFill(i, j, pane);
 
                         }
 
@@ -124,17 +124,15 @@ public class Game {
     }
 
     public void floodFill(int colIndex, int rowIndex, Pane pane) {
-        /*
         if(field[colIndex][rowIndex].getNeighbourCount() == 0) {
             pane.getChildren().add(field[colIndex][rowIndex].drawRevealedRect());
-            floodFill(colIndex + 1, rowIndex, pane);
-            floodFill(colIndex - 1, rowIndex, pane);
-            floodFill(colIndex, rowIndex + 1, pane);
-            floodFill(colIndex, rowIndex - 1, pane);
+            //floodFill(colIndex - 1, rowIndex);
         } else {
             return;
         }
-         */
+        
+        
+
     }
 
     public Cell[][] getField() {
