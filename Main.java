@@ -9,12 +9,10 @@ import com.yannickhuggler.minesweeper.model.Game;
 import java.util.Optional;
 import javafx.application.Application;
 import javafx.scene.Scene;
-import javafx.scene.control.Dialog;
 import javafx.scene.control.TextInputDialog;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
-import javax.swing.JOptionPane;
 
 /**
  *
